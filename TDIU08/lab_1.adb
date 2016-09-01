@@ -11,11 +11,11 @@ procedure lab_1 is
 Begin
 -- Get Fp from user
    Put("Första pris: ");
-   loop 
+   loop  --loops code from loop to end loop;
    Get(Fp);
    Skip_Line;
    if Fp > 0.0 then
-      exit;
+      exit; -- Exit loop
    else
       Put("[Första pris] Talet måste vara större än noll: ");
    end if;
@@ -41,7 +41,7 @@ Begin
    if Steg >= 0.0 then
       exit;
    else
-      Put("[Steg] Talet måste vara större än noll: ");
+      Put("[   Steg   ] Talet måste vara större än noll: ");
    end if;
    end loop;
 
