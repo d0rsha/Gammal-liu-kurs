@@ -38,10 +38,12 @@ Begin
    loop
    Get(Steg);
    Skip_Line;
-   if Steg >= 0.0 then
-      exit;
+   if Steg <= Float(0) then
+     Put("[   Steg   ] Talet måste vara större än noll: ");
+   elsif Steg >= Sp-Fp  then  
+     Put("[   Steg   ] Talet måste vara mindre än skillnaden mellan Fp och Sp: "); 
    else
-      Put("[   Steg   ] Talet måste vara större än noll: ");
+      exit;
    end if;
    end loop;
 
