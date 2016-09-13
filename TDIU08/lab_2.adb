@@ -41,31 +41,33 @@ procedure Lab_2 is
     -------------------------------------------------------  
     
    --------------- 'Rader' put tabell content ------------
-   procedure Rader(Fp : in out Float; Moms : in Float) is
+    procedure Rader(F1 : in Float; Moms : in Float) is
+       Fp : Float;
       begin
-         
-      Put(Fp, Fore =>5, Aft => 2, Exp =>0);
-      Put(Fp * Moms/100.0, Fore =>8, Aft => 2, Exp =>0);
-      Put((Fp * (Moms/100.0) + Fp), Fore =>6, Aft => 2, Exp =>0);
+         Fp := F1;
+	 Put(Fp, Fore =>5, Aft => 2, Exp =>0);
+	 Put(Fp * Moms/100.0, Fore =>8, Aft => 2, Exp =>0);
+	 Put((Fp * (Moms/100.0) + Fp), Fore =>6, Aft => 2, Exp =>0);
      
    end Rader;
 ------------------------------------------------------------   
    
 --------------'Print' tabell -------------------------------
-   procedure Print(Fp : in out  Float;
+   procedure Print(Fp : in Float;
 		   Sp : in Float;
 		   Steg : in Float;
 		   Moms : in Float) is
+      F1 : Float;
    begin
-      
+      F1 := Fp;
       Put("=== Momstabell ===");
       New_Line;
       Put("Pris utan moms Moms Pris med moms");
       New_Line;
       
-      while Fp <= Sp loop
-	 Rader(Fp, Moms);
-	 Fp := Fp + Steg;
+      while F1 <= Sp loop
+	 Rader(F1, Moms);
+	 F1 := F1 + Steg;
 	 New_Line;
       end loop;
       
