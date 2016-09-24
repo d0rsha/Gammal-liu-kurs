@@ -13,17 +13,14 @@ procedure Rolldie2  is
 	 
       begin
 	 New_Line;
-	 Put("+-----+");   
-	 New_Line;
+	 Put_Line("+-----+");   
 	 --Put Dice array1
-	 Put(Dice_Array1(N));
-	 New_Line;
-	 --Put Dice array2
-	 Put(Dice_Array2(N));
-	 New_Line;
+	 Put_Line(Dice_Array1(N));
 	 
-	 Put("+-----+"); 
-	 New_Line;
+	 --Put Dice array2
+	 Put_Line(Dice_Array2(N));
+	 
+	 Put_Line("+-----+"); 
       end PrintDice;
       
       
