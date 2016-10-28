@@ -12,22 +12,24 @@ procedure Lab_3_B is
 	 Length : Integer;
       end record;
    
-   procedure Get_P (P : in out String_Type) is
-      I : Integer := P.Char_Array'First;
+   procedure Get (P : in out String_Type;
+		 I : in out Positive := 1) is
    begin
-      while (not End_Of_Line) loop
-	 Get(P.Char_Array(I));
-	 I := I + 1;   
-      end loop;
+      if (End_Of_Line) then
+	return;
+      end if;
+      Get(P.Char_Array(I));
+      I := I + 1;
+      Get(P, I);
       P.Length := I - 1; -- Pga. Char_Array_Type börjar i position 1..
-   end Get_P;
+   end Get;
    
-   procedure Put_P (P : in String_Type) is
+   procedure Put (P : in String_Type) is
    begin
 	 for I in P.Char_Array'First..P.Length loop
 	    Put(P.Char_Array(I));
 	 end loop;
-   end Put_P;
+   end Put;
    
    Function "=" (Left : in String_Type;
 		 Right : in String_Type) return Boolean  is
@@ -48,16 +50,16 @@ procedure Lab_3_B is
    P1, P2 : String_Type;
 begin
    Put("Mata in en sträng: ");
-   Get_P(P1);
+   Get(P1);
    Skip_Line;
    
-   Put_P(P1);
+   Put(P1);
    New_Line;
    
    Put("Mata in en sträng: ");
-   Get_P(P2);
+   Get(P2);
    Skip_Line;
-   Put_P(P2);
+   Put(P2);
    New_Line;
    
    if P1 = P2 then
